@@ -14,7 +14,7 @@ export const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/blog" component={Blog} />
       <Route path="/about" component={About} />
-      <Route component={NotFound} is404 />
+      <Route component={NotFound} />
     </Switch>
   </div>
 );

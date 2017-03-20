@@ -26,15 +26,13 @@ app.get('*', (req, res) => {
     </StaticRouter>,
   );
 
-  console.log(context);
-
   // context.url will contain the URL to redirect to if a <Redirect> was used
   if (context.url) {
     return res.redirect(302, context.url);
   }
 
-  // TODO manage 404
-  return res.render('index', { markup });
+  const status = context.is404 ? 404 : 200;
+  return res.status(status).render('index', { markup });
 });
 
 // start the server
